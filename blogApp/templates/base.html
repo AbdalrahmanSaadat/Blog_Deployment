@@ -30,12 +30,14 @@
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
                     {% if user.is_authenticated %}
-                        <form method="post" action="logout/" style="display: inline;">
+                    <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                    <form method="post" action="logout/" style="display: inline;">
                             {% csrf_token %}
                             <button type="submit">
-                              Logout
+                                Logout
                             </button>
-                          </form>
+                        </form>
+
                     {% else %}
                         <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                         <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
