@@ -30,6 +30,9 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('profile/',user_views.profile, name='profile'),
     path('profile/logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('about/logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('post/<int:pk>/logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('post/new/logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     
 ]
 
