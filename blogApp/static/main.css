@@ -150,3 +150,27 @@ a {
 .try-it-button:hover {
     background-color: #005f73;
 }
+
+.likes-num, .dislikes-num {
+    display: inline-block;
+    /* background-color: green; */
+    width: 30px;
+    
+}
+
+.buttons-con {
+    display: flex;
+    /* background-color: blueviolet; */
+    width: 80px;
+    margin-left: 2px;
+    justify-content: space-between;
+}
+
+/* .likes-num {
+    margin-left: 5px;
+
+}
+
+.dislikes-num {
+    margin-left: 20px;
+} */
