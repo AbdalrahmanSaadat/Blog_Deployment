@@ -1,5 +1,10 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <h1>About Page!</h1>
+
+<div class="about-section">
+    <h2>About Our Blogging Platform</h2>
+    <p>Welcome to our blogging community. Our platform offers a full suite of functionalities including user login, secure password authentication, personalized profiles, and the ability to share your own posts.</p>
+    <a href="{% url 'register' %}" class="try-it-button">Try It Yourself</a>
+</div>
+
 {% endblock content %}

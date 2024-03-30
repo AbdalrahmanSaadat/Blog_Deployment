@@ -54,6 +54,13 @@ class UserPostListView(ListView):
     context_object_name = 'posts'
     # ordering = ['-date_posted']
     paginate_by = 5
+    title = 'Posts'
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        
+        context =  super().get_context_data(**kwargs)
+        context['title']= self.title
+        return context
     
     def get_queryset(self) -> QuerySet[Any]:
         user = get_object_or_404(User, username=self.kwargs.get('username'))
@@ -63,6 +70,13 @@ class UserPostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
+    title = 'Post'
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        
+        context =  super().get_context_data(**kwargs)
+        context['title']= self.title
+        return context
 
 
     
@@ -74,6 +88,14 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+    title = 'New Post'
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        
+        context =  super().get_context_data(**kwargs)
+        context['title']= self.title
+        return context
 
 
 class PostUpdateView(UserPassesTestMixin,LoginRequiredMixin, UpdateView):
