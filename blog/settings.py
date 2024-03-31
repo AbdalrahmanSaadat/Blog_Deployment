@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ra_u&hf1r-zx3@x-^-n(f&#lu_!4ml8(0d2tu^w=co=qvfxdo!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -125,7 +125,10 @@ USE_TZ = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-STATIC_URL = 'static/'
+
+
+
+STATIC_URL = 'D:/Git/log/static/'
 
 STATICFILES_DIRS = [
     path.join(BASE_DIR, "static")
