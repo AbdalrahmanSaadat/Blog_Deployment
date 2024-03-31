@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from os import path
+from os import path, environ
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,12 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ra_u&hf1r-zx3@x-^-n(f&#lu_!4ml8(0d2tu^w=co=qvfxdo!'
+# SECRET_KEY = 'django-insecure-ra_u&hf1r-zx3@x-^-n(f&#lu_!4ml8(0d2tu^w=co=qvfxdo!'
+
+SECRET_KEY = environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS').split(' ')
 
 
 # Application definition
@@ -89,7 +91,10 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse('postgres://blog_db_ez8s_user:8h8EzlTpWrVtqXRsuf5SDFAZMRSHVM9W@dpg-co4plv779t8c7395jm0g-a.oregon-postgres.render.com/blog_db_ez8s')
+
+database_url = environ.get('DATABASE_URL')
+
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
