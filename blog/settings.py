@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from os import path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +44,7 @@ INSTALLED_APPS = [
     'users',
     'crispy_forms',
     'crispy_bootstrap4',
-    
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,7 @@ DATABASES = {
     }
 }
 
+DATABASES['default'] = dj_database_url.parse('postgres://blog_db_ez8s_user:8h8EzlTpWrVtqXRsuf5SDFAZMRSHVM9W@dpg-co4plv779t8c7395jm0g-a.oregon-postgres.render.com/blog_db_ez8s')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
