@@ -28,6 +28,7 @@ SECRET_KEY = environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = environ.get('DEBUG', 'False').lower() == 'true'
+# DEBUG =True
 
 ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS').split(' ')
 # ALLOWED_HOSTS = []
@@ -143,7 +144,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = path.join(BASE_DIR, 'staticfiles')
- 
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
