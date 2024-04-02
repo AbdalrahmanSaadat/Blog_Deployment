@@ -22,16 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-ra_u&hf1r-zx3@x-^-n(f&#lu_!4ml8(0d2tu^w=co=qvfxdo!'
+SECRET_KEY = 'django-insecure-ra_u&hf1r-zx3@x-^-n(f&#lu_!4ml8(0d2tu^w=co=qvfxdo!'
 
-SECRET_KEY = environ.get('SECRET_KEY')
+# SECRET_KEY = environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = environ.get('DEBUG', 'False').lower() == 'true'
-# DEBUG =True
+# DEBUG = environ.get('DEBUG', 'False').lower() == 'true'
+DEBUG =True
 
-ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS').split(' ')
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS').split(' ')
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -94,9 +94,9 @@ DATABASES = {
 }
 
 
-database_url = environ.get('DATABASE_URL')
+# database_url = environ.get('DATABASE_URL')
 
-DATABASES['default'] = dj_database_url.parse(database_url)
+# DATABASES['default'] = dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

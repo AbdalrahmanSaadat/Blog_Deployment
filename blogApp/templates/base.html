@@ -13,12 +13,37 @@
     {% else %}
         <title>Blog</title>
     {% endif %}
+    <style>
+        @media only screen and (max-width: 500px) {
+            .mobile {
+                display: none;
+            }
+            .margin-none {
+                position: absolute;
+                right: 0;
+                top: 4px;
+            }
+            .margin-center {
+                position: absolute;
+                right: 4.59rem;
+                width: max-content;
+                top: 4px;
+            }
+            .margin-left{
+                position: absolute;
+                right: 10rem;
+                width: max-content;
+                top: 4px;
+            }
+    }
+
+    </style>
 </head>
 <body>
     <header class="site-header">
         <nav class="navbar navbar-expand navbar-dark bg-steel fixed-top main-nav">
-            <div class="container">
-                <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Blog</a>
+            <div class="container ">
+                <a class="navbar-brand mr-4 test mobile" href="{% url 'blog-home' %}">Blog</a>
                 <!-- --------------------------------------------------------------------- -->
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,24 +51,24 @@
                 <!-- -------------------------------------------------------------------------- -->
                 <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+                    <a class="nav-item nav-link " href="{% url 'blog-home' %}">Home</a>
                     <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
                 </div>
                 <!-- Navbar Right Side -->
-                <div class="navbar-nav naving-2" >
+                <div class="navbar-nav naving-2 margin-none" >
                     {% if user.is_authenticated %}
-                    <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                    <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+                    <a class="nav-item nav-link margin-left" href="{% url 'profile' %}">Profile</a>
+                    <a class="nav-item nav-link margin-center" href="{% url 'post-create' %}">New Post</a>
                     <form method="post" action="logout/" style="display: inline;">
                             {% csrf_token %}
-                            <button type="submit" class="btn logout">
+                            <button type="submit" class="btn logout margin-none">
                                 Logout
                             </button>
                         </form>
 
                     {% else %}
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                        <a class="nav-item nav-link mobile" href="{% url 'login' %}">Login</a>
+                        <a class="nav-item nav-link mobile" href="{% url 'register' %}">Register</a>
                     {% endif %}
                 </div>
                 </div>
