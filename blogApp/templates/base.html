@@ -20,18 +20,35 @@
             }
             .margin-none {
                 position: absolute;
-                right: 0;
+                right: .4rem;
                 top: 4px;
             }
             .margin-center {
                 position: absolute;
-                right: 4.59rem;
+                right: 80px;
                 width: max-content;
                 top: 4px;
             }
             .margin-left{
                 position: absolute;
                 right: 10rem;
+                width: max-content;
+                top: 4px;
+            }
+            .margin-none-1 {
+                position: absolute;
+                right: 0;
+                top: 4px;
+            }
+            .margin-center-1 {
+                position: absolute;
+                right: 67px;
+                width: max-content;
+                top: 4px;
+            }
+            .margin-left-1{
+                position: absolute;
+                right: 145px;
                 width: max-content;
                 top: 4px;
             }
@@ -57,18 +74,18 @@
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav naving-2 margin-none" >
                     {% if user.is_authenticated %}
-                    <a class="nav-item nav-link margin-left" href="{% url 'profile' %}">Profile</a>
-                    <a class="nav-item nav-link margin-center" href="{% url 'post-create' %}">New Post</a>
+                    <a class="nav-item nav-link margin-left-1" href="{% url 'profile' %}">Profile</a>
+                    <a class="nav-item nav-link margin-center-1" href="{% url 'post-create' %}">New Post</a>
                     <form method="post" action="logout/" style="display: inline;">
                             {% csrf_token %}
-                            <button type="submit" class="btn logout margin-none">
+                            <button type="submit" class="btn logout margin-none-1">
                                 Logout
                             </button>
                         </form>
 
                     {% else %}
-                        <a class="nav-item nav-link " href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link " href="{% url 'register' %}">Register</a>
+                        <a class="nav-item nav-link margin-center" href="{% url 'login' %}">Login</a>
+                        <a class="nav-item nav-link margin-none" href="{% url 'register' %}">Register</a>
                     {% endif %}
                 </div>
                 </div>
